@@ -6,11 +6,7 @@ defining a constrained NetCDF4 structure that permits greater interoperability f
 
 ## Installation
 
-```bash
-pip install sandsuet-checker
-```
-
-Or from source:
+From the git repository source:
 
 ```bash
 git clone https://github.com/sandpiper-toolchain/sandsuet-checker
