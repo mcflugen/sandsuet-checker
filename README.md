@@ -80,7 +80,6 @@ a `tqdm` progress bar.
 
 ```bash
 pip install sandsuet_checker[examples]
-pip install pooch
 python examples/fetch_sample.py
 ```
 
