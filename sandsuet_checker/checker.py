@@ -23,15 +23,9 @@ Primary API:
 import os
 import re
 
+import cf_units
 import netCDF4 as nc
 import numpy as np
-
-try:
-    import cf_units
-
-    CF_UNITS_AVAILABLE = True
-except ImportError:
-    CF_UNITS_AVAILABLE = False
 
 SEMVER_RE = re.compile(r"^\d+\.\d+\.\d+$")
 
@@ -433,13 +427,6 @@ class SandsuetChecker:
                 )
 
     def check_unit_consistency(self):
-        if not CF_UNITS_AVAILABLE:
-            self._log(
-                "Unit consistency",
-                "WARN",
-                "cf-units not available; skipping UDUNITS validation.",
-            )
-            return
         invalid = []
         for var in _all_variables(self.ds):
             units_str = getattr(var, "units", None)
