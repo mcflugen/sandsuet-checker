@@ -1,21 +1,61 @@
 [build-system]
-requires = ["setuptools>=64", "wheel"]
+requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "sandsuet-checker"
 version = "0.0.9000"
 description = "Compliance checker for the sandsuet v1.0.0 analysis-ready data specification"
+readme = "README.md"
 requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    {name = "sandpiper toolchain team"},
+]
+keywords = [
+    "compliance",
+    "geomorphology",
+    "netcdf",
+    "netcdf4",
+    "sandsuet",
+    "sandpiper",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering",
+]
 dependencies = [
+    "cf-units",
     "netCDF4",
     "numpy",
-    "cf-units",
 ]
 
+[project.urls]
+Homepage = "https://github.com/sandpiper-toolchain/sandsuet-checker"
+Repository = "https://github.com/sandpiper-toolchain/sandsuet-checker"
+Issues = "https://github.com/sandpiper-toolchain/sandsuet-checker/issues"
+
 [project.optional-dependencies]
-testing = ["pytest"]
-examples = ["pooch[progress]"]
+testing = [
+    "pytest",
+]
+examples = [
+    "pooch[progress]",
+]
+dev = [
+    "pre-commit",
+]
 
 [project.scripts]
 sandsuet-checker = "sandsuet_checker.cli:main"
@@ -28,9 +68,9 @@ include = ["sandsuet_checker*"]
 testpaths = ["sandsuet_checker", "tests"]
 norecursedirs = [".*", "*.egg*", "build", "dist"]
 addopts = [
-  "--tb=native",
-  "--durations=16",
-  "--strict-markers",
-  "--doctest-modules",
-  "-vvv",
+    "--tb=native",
+    "--durations=16",
+    "--strict-markers",
+    "--doctest-modules",
+    "-vvv",
 ]
